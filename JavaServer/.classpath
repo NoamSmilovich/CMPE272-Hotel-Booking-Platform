@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.launching.macosx.MacOSXType/JRE [17.0.4.1]">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/noamsmilovich/Library/Mobile Documents/com~apple~CloudDocs/Semester 2/272/Project/Backend/Dependencies/opencsv-5.7.1.jar"/>
+	<classpathentry kind="lib" path="/Users/noamsmilovich/Library/Mobile Documents/com~apple~CloudDocs/Semester 2/272/Project/Backend/Dependencies/mongodb-driver-core-4.9.1.jar"/>
+	<classpathentry kind="lib" path="/Users/noamsmilovich/Library/Mobile Documents/com~apple~CloudDocs/Semester 2/272/Project/Backend/Dependencies/mongodb-driver-sync-4.9.1.jar"/>
+	<classpathentry kind="lib" path="/Users/noamsmilovich/Library/Mobile Documents/com~apple~CloudDocs/Semester 2/272/Project/Backend/Dependencies/bson-4.10.0-alpha0.jar"/>
+	<classpathentry kind="lib" path="/Users/noamsmilovich/Library/Mobile Documents/com~apple~CloudDocs/Semester 2/272/Project/Backend/Dependencies/mysql-connector-java-8.0.30.jar"/>
+	<classpathentry kind="lib" path="/Users/noamsmilovich/Library/Mobile Documents/com~apple~CloudDocs/Semester 2/272/Project/Backend/Dependencies/json-20230227.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
