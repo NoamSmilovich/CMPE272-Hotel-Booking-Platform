@@ -30,9 +30,6 @@ public class ListeningServer {
     }
 
     public static void main(String[] args) {
-//        test_db_connection(DBConnectionFactory.createConnection("mongodb", "hotels_db"));
-//        test_db_connection(DBConnectionFactory.createConnection("mysql", "hotels_db"));
-//        simulation();
         try {
             new ListeningServer();
         } catch (IOException e) {

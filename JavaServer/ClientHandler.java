@@ -50,41 +50,39 @@ class ClientHandler implements Runnable {
         data_json = data_json.substring(data_json.indexOf("{"), data_json.lastIndexOf("}") + 1);
         return data_json;
     }
+    
     private void parse_and_query(JSONObject message) throws JSONException, IOException {
-//        if (this.DBHandle==null)
+    	
     	System.out.println("Attempting to create DB handle...");
-        DBHandle = DBConnectionFactory.createConnection(message.getString("client_type"),message.getString("database"));
+        DBHandle = DBConnectionFactory.createConnection(message.getString("client_type"), message.getString("database"));
         System.out.println("DB handle created :)");
+        
         switch (message.getString("operation")){
             case ("create"):
                 DBHandle.create(message.getString("collection"), (JSONObject)message.get("filter"));
             	send_message((new JSONObject().put("result", "create successful")).toString());
-//                this.clientSocket.getOutputStream().write((new JSONObject().put("result", "create successful")).toString().getBytes("UTF-8"));
                 break;
             case("read"):
                 JSONObject ret_json = DBHandle.read(message.getString("collection"), message.get("filter"));
             	send_message(ret_json.toString());
-//                this.clientSocket.getOutputStream().write(ret_json.toString().getBytes("UTF-8"));
                 break;
             case("update"):
                 DBHandle.update(message.getString("collection"),
                         message.getJSONObject("filter").getJSONObject("filter"),
                         message.getJSONObject("filter").getJSONObject("fields"));
             	send_message((new JSONObject().put("result", "update successful")).toString());
-//                this.clientSocket.getOutputStream().write((new JSONObject().put("result", "update successful")).toString().getBytes("UTF-8"));
                 break;
             case("delete"):
                 DBHandle.delete(message.getString("collection"), String.valueOf(message.get("filter")));
             	send_message((new JSONObject().put("result", "delete successful")).toString());
-//                this.clientSocket.getOutputStream().write((new JSONObject().put("result", "delete successful")).toString().getBytes("UTF-8"));
                 break;
             case("migrate"):
                 DBConnection dest_handle = DBConnectionFactory.createConnection(message.getString("destination"),message.getString("database"));
                 DBConnection source_handle = DBConnectionFactory.createConnection(message.getString("source"),message.getString("database"));
                 dest_handle.create(message.getString("collection"), source_handle.read(message.getString("collection"), ""));
         }
-//        DBHandle.closeConnection();
     }
+    
     private void send_message(String message) throws IOException {
     	System.out.println("Sending: "+message+"\n");
     	this.clientSocket.getOutputStream().write(message.getBytes("UTF-8"));
